@@ -1,0 +1,2 @@
+#Ignore all .rb databases
+db/age.rb
