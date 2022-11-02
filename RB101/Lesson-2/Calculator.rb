@@ -1,59 +1,37 @@
 # Lesson 6 
 # Walk-trhough: Calculator
 
-#Methods for each operator
+#ask the user for two numbers
+#ask the user for an operation to perform
+#perform the operation on the two numbers
+#output the result
 
-def add(num1, num2)
-  num1 + num2
-end
+puts "Welcome to Calculator!"
+puts "What's the first number?"
 
-def subtract(num1, num2)
-  num1 - num2
-end 
+number1 = gets.chomp
+puts "The number is " + number1 + "!"
 
-def multiply(num1, num2)
-  num1 * num2
-end 
+puts "What's the second number?"
 
-def divide(num1, num2)
-  num1 / num2
-end 
+number2 = gets.chomp
+puts "The number is " + number2 + "!"
 
-#User input for numbers to operate on
-  puts "Please input first number"
-  number1 = gets.chomp.to_i
-
-  puts "Please input second number"
-  number2 = gets.chomp.to_i
-  
-
-#Operator choice
-solution = nil
-
-puts "Please input operation of choice (+, -, *, /)"
+puts "What operation would you like to perform? 1) add 2) subtract 3) multiply 4) divide" 
 operator = gets.chomp
 
-case operator
-
-when "+"
-  solution = add(number1, number2)
-  puts "#{number1} + #{number2} = #{solution}"
-
-when "-"
-  solution = subtract(number1, number2)
-  puts "#{number1} - #{number2} = #{solution}"
+if operator == "1"
+  result = number1.to_i + number2.to_i
   
-when "*"
-  solution = multiply(number1, number2)
-  puts "#{number1} * #{number2} = #{solution}"
-
-when "/"
-  solution = divide(number1, number2)
-  puts "#{number1} + #{number2} = #{solution}"
+elsif operator == "2"
+  result = number1.to_i - number2.to_i
   
-else
-  puts "Error! can only choose +, -, *, / as an operator!"
-
+elsif operator == "3"
+  result = number1.to_i * number2.to_i
+  
+elsif operator == "4"
+  result = number1.to_f / number2.to_f
+    
 end 
 
-#test
+puts "The result is #{result}"
