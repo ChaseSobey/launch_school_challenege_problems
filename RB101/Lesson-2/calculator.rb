@@ -19,10 +19,10 @@ def operation_to_message(op)
   case op
   
   when '1'
-    "Addinng"
+    "Adding"
   
   when '2'
-    "Subtractinng"
+    "Subtracting"
   
   when '3'
     "Multiplying"
@@ -102,17 +102,29 @@ loop do #Main Loop
   
   result = case operator
           when '1'
-            result = number1.to_i + number2.to_i
+            if number1 == number1.to_i.to_s && number2 == number2.to_i.to_s
+              result = number1.to_i + number2.to_i
+            else 
+              result = number1.to_f + number2.to_f
+            end 
     
           when '2'
-           result = number1.to_i - number2.to_i
+            if number1 == number1.to_i.to_s && number2 == number2.to_i.to_s
+              result = number1.to_i - number2.to_i
+            else 
+              result = number1.to_f - number2.to_f
+            end 
     
           when '3'
-           result = number1.to_i * number2.to_i
+            if number1 == number1.to_i.to_s && number2 == number2.to_i.to_s
+              result = number1.to_i * number2.to_i
+            else 
+              result = number1.to_f * number2.to_f
+            end 
     
           when '4'
             if number2.to_i == 0
-              puts "Divide by zero error"
+              prompt("Divide by zero error")
             else
               result = number1.to_f / number2.to_f
             end 
