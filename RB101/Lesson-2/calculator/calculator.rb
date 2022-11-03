@@ -6,6 +6,10 @@
 # perform the operation on the two numbers
 # output the result
 
+## MESSAGE INITIALIZATION
+require 'yaml'
+MESSAGES = YAML.load_file('calculator_messages.yml')
+
 ## METHOD DEFINITIONS ##
 def prompt(message)
   puts("=> #{message}")
@@ -16,7 +20,7 @@ def valid_number?(num)
 end 
 
 def operation_to_message(op)
-  case op
+ word = case op
   
   when '1'
     "Adding"
@@ -30,6 +34,8 @@ def operation_to_message(op)
   when '4'
     "Dividing"
   end 
+  
+  word
 end 
 
 ## VARIABLE INITIALIZATION
@@ -40,40 +46,40 @@ operator = nil
 
 ## START OF PROGRAM
 
-prompt('Welcome to Calculator! Please enter name')
+prompt(MESSAGES['welcome'])
 
 loop do 
   name = gets.chomp
   if name.empty?
-    prompt("Make sure to use a valid name friend")
+    prompt(MESSAGES['invalid_name'])
   else 
     break
   end 
 end 
 
-prompt("Hi #{name}!")
+prompt(MESSAGES['hi'] + "#{name}!")
 
 loop do #Main Loop
   loop do 
-  prompt "What's the first number?"
+  prompt MESSAGES['first_number']
   number1 = gets.chomp
   
     if valid_number?(number1)
-      prompt "The number is " + number1 + "!"
+      prompt(MESSAGES['valid_number'] + number1 + "!")
       break
     else 
-      prompt("Hmm... that didnt look like a valid number.")
+      prompt(MESSAGES['invalid_number'])
     end 
   end 
   
   loop do 
-    prompt("What's the second number?")
+    prompt(MESSAGES['second_number'])
     number2 = gets.chomp
     if valid_number?(number2)
-      prompt("The number is " + number2 + "!")
+      prompt(MESSAGES['valid_number'] + number2 + "!")
       break
     else
-      prompt("Hmm... that didnt look like a valid number.")
+      prompt(MESSAGES['invalid_number'])
     end 
   end
   
@@ -94,11 +100,11 @@ loop do #Main Loop
     if %w(1 2 3 4).include?(operator)
       break
     else 
-      prompt("Make sure you choose a valid operator (1, 2, 3 or 4)")
+      prompt(MESSAGES['invalid_operator'])
     end 
   end 
   
-  prompt("#{operation_to_message(operator)} the two numbers...")
+  prompt("#{operation_to_message(operator)}" + MESSAGES['operation_pause_effect'])
   
   result = case operator
           when '1'
@@ -124,18 +130,18 @@ loop do #Main Loop
     
           when '4'
             if number2.to_i == 0
-              prompt("Divide by zero error")
+              prompt(MESSAGES['divide_by_zero'])
             else
               result = number1.to_f / number2.to_f
             end 
       
   end 
    
-  prompt("The result is #{result}")
+  prompt(MESSAGES['result'] + "#{result}")
   
-  prompt("Do you want to perform another calculation? (Y/N)")
+  prompt(MESSAGES["run_again?"])
   answer = gets.chomp
   break unless answer.downcase.start_with?('y')
 end 
 
-prompt("Thank you for calculating with us #{name}! We value your business")
+prompt(MESSAGES['goodbye'])

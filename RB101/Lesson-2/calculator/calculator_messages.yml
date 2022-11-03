@@ -1,0 +1,13 @@
+welcome: 'Welcome to Calculator! Please enter name'
+invalid_name: "Make sure to use a valid name friend"
+hi: "Hi "
+first_number: "What's the first number?"
+valid_number: "The number is "
+invalid_number: "Hmm... that didnt look like a valid number."
+second_number: "What's the second number?"
+invalid_operator: "Make sure you choose a valid operator (1, 2, 3 or 4)"
+operation_pause_effect: " the two numbers..."
+divide_by_zero: "Divide by zero error"
+result: "The result is "
+run_again?: "Do you want to perform another calculation? (Y/N)"
+goodbye: "Thank you for calculating with us! We value your business"
