@@ -111,7 +111,11 @@ loop do #Main Loop
            result = number1.to_i * number2.to_i
     
           when '4'
-            result = number1.to_f / number2.to_f
+            if number2.to_i == 0
+              puts "Divide by zero error"
+            else
+              result = number1.to_f / number2.to_f
+            end 
       
   end 
    
