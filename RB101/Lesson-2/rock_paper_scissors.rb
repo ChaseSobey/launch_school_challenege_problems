@@ -24,6 +24,10 @@ def display_results(player_choice, computer_choice)
   end 
 end 
 
+def prompt(words)
+  puts "=> #{words}"
+end 
+
 player_choice = ''
 loop do 
   
