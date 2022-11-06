@@ -1,4 +1,4 @@
-## HIGH LEVEL PSEUDO CODE ##
+# HIGH LEVEL PSEUDO CODE #
 
 # Get loan amount, annual percentage rate (APR) and loan duration in years from user
 # convert APR and loan duration from years into months
@@ -38,6 +38,7 @@ loan_duration_months = loan_duration_years * 12
 
 # Monthly payment calculation
 
-monthly_payment = (loan_amount * (monthly_interest / (1 - (1 + monthly_interest) ** (-loan_duration_months)))).round(2)
+monthly_payment = (loan_amount * (monthly_interest / (1 - (1 + monthly_interest)**-loan_duration_months))).round(2)
 
 puts "Your monthly payment is $#{monthly_payment}"
+
