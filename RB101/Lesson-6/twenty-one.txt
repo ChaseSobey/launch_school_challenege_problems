@@ -1,0 +1,97 @@
+
+PROBLEM STATEMENT
+Make a program that is the game Blackjack (Twenty-One) where you play against the dealer
+
+EXPLICIT REQUIREMENTS:
+Have a functioning game of blackjack, this means:
+  -You start out with 2 randomly chosen cards and the dealer starts out with one card you can see and one card you cant see (randomly chosen as well)
+  -The cards are 2 - 10, the Face Cards (jack, queen king) which are all worth 10 and then Ace (worth 1 or 11)
+  -Be able to choose Hit (get another random card) or Stay (stop getting more cards)
+  -When players all stay, whoever is closest to 21 points without going over is the winner
+  -If you go over 21, you 'bust' and you have lost
+  
+  -Dealer must continue to hit until their total is at least 17
+  -If Dealer busts, then the player wins
+
+IMPLICIT REQUIREMENTS:
+  -Ace must be able to function as value of 1 or 11
+  -Program must not break or force player to bust if they have more than 1 Ace in their hand (Can have mulitple Aces with different values)
+  
+HIGH LEVEL ALGORITHM
+
+1. Initialize deck 
+  a. Makes sense for each players 'hand' to be an array of keys, the keys being the card name and the value they correspond to being the card value
+  b. to initialize, make both the dealer and the player 'hand' = []
+  
+2. Deal cards to player and dealer
+  a. Could do this by running sample twice on hash.values array of the card keys and values hash to populate each players hands
+  
+3. Player turn: 'hit' or 'stay'
+  a. reapeat until bust or 'stay'
+    i. could set up a for loop that repeats until the player chooses stay, each iteration of hit, .sample runs and appends another value to the player hand array
+    
+4. If player busts, dealer wins
+  a. Simply have to evaluate the sum of values of the player hand array and determine if it is <= 21, where if false, game immediately ends with player loses
+  
+5. Dealer turn: 'hit' or 'stay'
+  a. Repeat until total is >= 17
+  
+6. If dealer busts, player wins
+  a. same evaluation method as player hand evaluation
+
+7. Compare cards and declare winner.
+  a. If we reach this step then we know both the player and dealer hand are less than 21 or that wouldve already been evalutaed and round would be over
+  b. If the two hands equal eachother, then round ends in a tie, if not then...
+  c. The winner is simply the larger number, so just need to run .max on the two hands
+  
+  
+  
+  
+ALGORITHM BROKEN DOWN BY STEP
+
+STEP #1: DECK INITIALIZATION
+  1. Create a hash called cards, where the keys are the card names spelled out and the values are the values of each card
+  2. DEFINE a method called initialize_hand(player) that takes an array as an arguement and reassigns it as an empty array
+
+STEP #2: DEAL FIRST HAND
+  1. High level algorithm already sufficiently explained the procedure
+
+STEP #3: PLAYER TURN GAMEPLAY LOOP
+  1. BEGIN LOOP
+    2. DISPLAY a message telling the player the current cards in their hand
+    3. ASK player if they want to hit or stay?, repeat until they choose one of these 2 options
+    4. If HIT is chosen, randomly select 1 additional card and append to the players hand
+    5. evalute hand to determine if player is still below 21 (NEED AN EVALUATION METHOD FOR VALUE OF HAND)
+      6. IF player hand evaluation is greater than 21, then end program and display that dealer won
+    7. RETURN TO (2.) until player SELECTS STAY
+    END LOOP
+
+  HAND EVALUATION METHOD
+    1. DEFINE a method called value_of_hand(player, cards_hash)
+    2. INITIALIZE VARIABLE called hand_value = 0 (this will be the value that is summed and returned by definition)
+    3. ITERATE THROUGH passed in hand array with each value in hand array being |card|
+      4. IF card == 'ace'
+        6. hand_value += cards_hash[card].last
+      7. ELSE hand_value += cards_hash[card]
+         END
+      END
+      
+    8. now to correct the value of each ace in hand 
+    9. use the .select and .count method on the player array to determine the number of aces present
+    10. use the .times method as many times as aces are found to be present and check
+    11. IF hand_value > 21
+      12. hand_value - cards_hash['ace'].last + cards_hash['ace'].first
+    13. END
+    
+    14. RETURN hand_value
+
+STEP #5: DEALER TURN
+The desired result is that so long as the dealer's hand is less than or equal 17, keep hitting
+
+  1. LOOP
+    2. IF dealer hand evaluation is <= 17, then HIT
+    3. ELSE BREAK loop
+    4. IF hand evaluation is > 21
+      5. Display a message saying dealer lost and player has won
+      6. BREAK loop
+    END
