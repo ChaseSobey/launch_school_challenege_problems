@@ -1,0 +1,110 @@
+This is the notes file and algorithm structure for the accompanying OO_RPS.rb file (Object Oriented Rock Paper Scissors ruby file)
+
+This is the same game as previously done, only programmed with Object Oriented Design. the game flow should go as follows:
+
+- The user makes a choice
+- The computer makes a choice
+- The winner is displayed
+
+APPROACH TO OOP
+classical approach to object oriented programming is:
+
+1. Write a textual description of the problem or exercise
+2. Extract the major nouns and verbs from the description
+3. Organize and associate the verbs with the nouns
+4. The Nouns are CLASSES and the Verbs are the BEHAVIORS or METHODS
+
+## Notice how with OO we dont think about the game flow logic at all. Were wholly focused on organizing the code into a cohesive class structure ##
+
+the final step after all the organization is to orchestrate the flow of the program using objects instantiated from the classes
+
+
+## PROBLEM TEXTUAL DESCRIPTION ##
+
+Rock-Paper-Scissors is a 2-Player game where each player chooses
+one of three possible moves: rock, paper, or scissors. The chosen moves
+will then be compared to see who wins according to the following rules:
+
+- rock beats scissors
+- paper beats rock
+- scissors beats paper
+
+if the players choose the same move, then its a tie
+
+NOUNS: Player, Move, Rule
+VERBS: Choose, Compare
+
+Now we organize the verbs under the associated nouns
+
+Player
+  -choose
+Move
+Rule
+
+- Compare
+
+Lets attempt to write out classes and instance methods with this rough associattion break down
+
+--------------------------------------------------------------------------------------------------
+class Player
+  def initialize
+    # maybe @name and @move where move starts as nil and changes based on user input?
+  end
+
+  def choose
+  end
+end
+
+class Move
+  def initialize
+    # seems like we need a way to keep track of player move choice
+    # move could be paper, rock or scissors potentially?
+  end
+end
+
+class Rule
+  def initialize
+    # No idea what to put for the state of a rule object yet
+  end
+end
+
+# not sure where to put "Compare", maybe it could be a Mixin?
+def compare(move1, move2)
+
+end
+---------------------------------------------------------------------------------------------------
+We also need an 'Engine' class that gets the whole game started. something like...
+
+RPSGame.new.play as the initializing command
+
+class RPSGame
+  attr_accessor :human, :computer
+  def initialize
+    @human = Player.new
+    @computer = Player.new
+  end
+  
+  def play
+    display_welcome_message
+    human.choose
+    computer.choose
+    display_winner
+    display_goodbye_message
+  end
+end
+
+
+case human.move
+    when "rock"
+      puts "Its a tie!" if computer.move == 'rock'
+      puts "You win!" if computer.move == 'scissors'
+      puts "You Lose!" if computer.move == 'paper'
+    when 'paper'
+      puts "Its a tie!" if computer.move == 'paper'
+      puts "You win!" if computer.move == 'rock'
+      puts "You Lose!" if computer.move == 'scissors'
+    when 'scissors'
+      puts "Its a tie!" if computer.move == 'scissors'
+      puts "You win!" if computer.move == 'paper'
+      puts "You Lose!" if computer.move == 'rock'
+    end
