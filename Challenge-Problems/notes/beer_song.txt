@@ -1,0 +1,46 @@
+PS
+
+Write a program that can generate all the lyrics of 99 bottles of beer on the wall
+
+implict requirements
+
+have a class call BeerSong
+
+have an instance method called verse that takes an integer as an argument and is the verse for the passed
+in integer
+
+have a class method that will output the entire song
+
+Examples / Test Cases
+
+see beer_song_test.rb
+
+Data Structure
+
+most of the work of the verse instance method will be done in a string
+
+Algorithm
+
+SPIKE
+
+class BeerSong
+  def verse(num)
+    #return a string that is the verse of the song
+  end
+  
+  def verses(start_verse, end_verse)
+    #return a giant string that is every verse from the start verse to the end vers 
+  end
+  
+  def self.lyrics
+    #return a giant string that is all the verses of the song
+  end
+  
+  private
+  
+  def determine_verse(num)
+    #depending on the value of number, return the proper verse of the dumbass song
+  end
+end
+  
+  

@@ -1,0 +1,60 @@
+Tic Tac Toe is a 2-Player Board game played on a 3x3 grid. Each player takes turns marking a square,
+the first to mark 3 squares in a row wins
+
+Nouns: Board, Player, Square, Grid
+Verbs: Play, Mark
+
+---ORGANIZED---
+Board
+Square
+Player
+  - mark
+  - play
+
+---SPIKE (first attempt to explore problems needed classes and structure)---
+
+class Board
+  def initialize
+    create an empty board
+    assigns players and who is going first
+  end
+end
+
+class Square
+  def initialize
+    maybe a status to keep track of each squares mark?
+  end
+end
+
+class Player
+  def initialize
+    maybe a marker to keep track of each players symbol?
+  end
+  
+  def mark
+  
+  end
+end
+
+class TTTGame
+  def play
+    display_welcome_message
+    loop do
+      display_board
+      first_player_moves
+      break if someone_won? || board_full?
+      
+      second_player_moves
+      break if someone_won? || board_full?
+    end
+    
+    display_result
+    display_goodbye_message
+  end
+end
+
+if @squares[winning_line[0]].marker == TTTGame::HUMAN_MARKER && @squares[winning_line[1]].marker == TTTGame::HUMAN_MARKER && @squares[winning_line[2]].marker == TTTGame::HUMAN_MARKER
+        return TTTGame::HUMAN_MARKER
+      elsif @squares[winning_line[0]].marker == TTTGame::COMPUTER_MARKER && @squares[winning_line[1]].marker == TTTGame::COMPUTER_MARKER && @squares[winning_line[2]].marker == TTTGame::COMPUTER_MARKER
+        return TTTGame::COMPUTER_MARKER
+      end

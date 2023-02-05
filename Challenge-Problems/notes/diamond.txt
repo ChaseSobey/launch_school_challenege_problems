@@ -1,0 +1,61 @@
+PS
+
+make a diamond with the perimeter being letters
+the diamond is both horizontally and vertically symmetrical
+
+Examples / Test Cases
+
+A
+
+
+  A
+ B B
+C   C
+ B B
+  A
+  
+  
+    A
+   B B
+  C   C
+ D     D
+E       E
+ D     D
+  C   C
+   B B
+    A
+
+Data Structure
+
+store each capital letter in a constant that is an array 
+
+Algorithm
+
+need a class called diamond
+need an instance method called make_diamond(letter) that takes a single letter to denote the size of the diamond
+
+should have a helper method for ascending, middle and descending sections of the diamond
+
+SPIKE
+
+class Diamond
+  LETTERS = ('A'..'Z').to_a
+  def self.make_diamond(letter)
+    diamond_variable = ''
+    diamond_variable << ascending_section
+    diamond_variable << middle_section
+    diamond_variable << descending_section
+    
+    diamond_variable
+  end
+  
+  def self.all_but_middle_row(letter)
+    #make all of the ascending portion of the diamond
+  end
+  
+  def self.middle_row(letter)
+    #make the middle row of the diamond
+  end
+end
+  
+  

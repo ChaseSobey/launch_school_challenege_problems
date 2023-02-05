@@ -1,0 +1,60 @@
+PS
+
+write a program that converts octal base numbers to decimal base numbers
+
+Implicit Requirements
+- Have a class called Octal that has a constructor method that takes a string octal number as an argument
+- Have an instance method called to_decimal that converts the octal number to a decimal
+- Any non number passed in will be converted to zero by the to_decimal instance method
+
+Examples / Test Cases
+
+  233 # decimal
+= 2*10^2 + 3*10^1 + 3*10^0
+= 2*100  + 3*10   + 3*1
+
+
+  233 # octal
+= 2*8^2 + 3*8^1 + 3*8^0
+= 2*64  + 3*8   + 3*1
+= 128   + 24    + 3
+= 155
+
+5 * 8**0
+5 * 8**1
+1 * 8**2
+
+Data Structure
+
+An array collection can be used to hold the value for each tens place number during conversion
+
+Algorithm
+
+SPIKE
+
+class Octal
+  attr_reader :octal_number
+  def initialize(string)
+    @octal_number = string
+  end
+  
+  def valid_number?
+    octal_number.chars.any?{ |char| char == char.to_i.to_s }
+  end
+  
+  def to_decimal
+    #iterative code that reverses how an octal number is created in the example section of PEDAC
+  end
+end
+
+ALGORITHM FOR to_decimal INSTANCE METHOD
+
+1. RETURN 0 UNLESS valid_number?
+2. INITIALIZE a local variable called sum = 0
+3. INITIALIZE a local variable called power = 0
+3. octal_number.chars.reverse.each do |number|
+  4. sum += (number * 8 ** power)
+  5. power += 1
+  END
+6. RETURN sum
+END

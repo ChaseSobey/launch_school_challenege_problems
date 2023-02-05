@@ -1,0 +1,35 @@
+--- Problem Statement ---
+
+Write a program that determines the Hamming Distance between 2 strands of DNA (2 strings)
+The Hamming Distance is the number of differences between 2 strings of equal length
+
+Explicit Requirements
+  - Only equal length strings can be compared
+  -If 2 strings are of unequal length, compare up to the end of the shorter string
+
+--- Examples / Test Cases ---
+
+See point_mutations_test.rb file for test cases
+
+--- Data Structure ---
+
+DNA will be a class with a constructor method that takes 1 string as an argument
+  DNA strand will be stored as a string variable
+  
+DNA class will have a method called hamming_distance(other_string) which takes 1 string as an argument
+
+--- Algorithm ---
+
+1. CREATE a class called DNA
+2. DEF Initialize method that assigns a string to an instance variable called genome
+
+3. DEF method called hamming_distance(other_genome) that takes a string as an argument
+  4. INITIALIZE a variable called analysis_length = [genome.size, other_genome.size].min
+  5. INITIALIZE a variable called hamming_distance_counter = 0
+  
+  6. genome[0..analysis_length].each_with_index do |point, index|
+    7. hamming_distance_counter += 1 IF point == other_genome[index]
+  8. END
+  9. RETURN hamming_distance_counter
+10. END
+END

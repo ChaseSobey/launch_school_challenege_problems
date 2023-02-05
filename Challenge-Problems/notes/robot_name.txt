@@ -1,0 +1,43 @@
+PS
+
+Write a program that manages robot names
+
+Explicit Requirements
+when a new robot is intantiated, the robot object should be given a random name
+
+need a reset instance method that assigns a new name to the robot
+
+robots CANNOT have the same name
+
+implicit requirements
+  -need a name getter and setter method
+
+Examples / Test Cases
+
+See robot_name_test.rb for test cases
+
+Data Structure
+
+a class variable that is an array can be added to each time a robot object is instantiated
+when a robot is reset, that particular name can be removed from the array
+
+Algorithm
+
+SPIKE
+
+class Robot
+  @@existing_names = []
+  attr_accessor :name
+  
+  def initialize
+    #sample 2 random capital letters and then sample 3 random numbers and set equal to name
+    @name = name
+    
+    @@existing_names << @name
+  end
+  
+  def reset
+    #remove the current name from @@existing_names
+    #do the same stuff for the initialize instance method
+  end
+end

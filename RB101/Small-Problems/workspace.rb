@@ -1,7 +1,1 @@
-
-def str
-  'a method'
-end 
-
-str = 'a string'
-p str
+puts 5.to_i

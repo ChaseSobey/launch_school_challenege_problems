@@ -1,0 +1,50 @@
+PS
+
+write a program that will take a string of digits and return all possible consecutive number series
+of a specified length in that string
+
+implicit requirements
+- returned value must be a nested array of integers
+- an ArgumentError is raised if the desired length is longer than the string in question
+
+need a class called Series
+need a constructor method that takes a string of numbers as an argument
+need an instance method called slices that returns a nested array of all the consecutive number series
+
+Examples / Test Cases
+
+For example, the string "01234" has the following 3-digit series:
+
+012
+123
+234
+
+Likewise, here are the 4-digit series:
+
+0123
+1234
+Finally, if you ask for a 6-digit series from a 5-digit string, you should throw an error.
+
+Data Structure
+
+A nested array is required for this problem as the returned value
+the string needs to be converted into an array of characters and then an array of single digit integers
+
+Algorithm
+
+SPIKE
+
+class Series
+  attr_reader :number_string
+  def initialize(num)
+    @number_string = num
+  end
+  
+  def slices(slice_size)
+    raise ArgumentError.new if slice_size > number_string.size
+    
+    result = []
+    character_array = number_string.chars.map(&:to_i)
+    #iterate through the character array to get all of the possible number strings
+  end
+end 

@@ -1,0 +1,53 @@
+--- Problem Statement ---
+
+Write a program that given a word computes the Scrabble score for that word
+
+Implicit Requirements
+  -points are case INSENSITIVE
+
+
+--- Examples / Test Cases ---
+
+point totals are as follows
+
+1 point: A,E,I,O,U,L,N,R,S,T
+2 point: D,G
+3 point: B,C,M,P
+4 point: F,H,V,W,Y
+5 point: K
+8 point: J,X
+10 point: Q,Z
+
+--- Data Structure ---
+
+Use a hash and write out each letter as a key and its corresponding point worth as the value
+
+--- Algorithm ---
+
+SPIKE IS AS FOLLOWS
+
+class Scrabble
+  LETTER_POINTS = {#...}
+  attr_reader :word
+  def initialize(word)
+    @word = word
+  end
+  
+  def score
+    #some form of iteration through each letter in the word and summation of point total
+  end
+  
+  def self.score(scrabble_word)
+    #same thing as instance method score
+  end
+end
+
+ALGORITHM FOR SCORE INSTANCE METHOD
+1. INITIALIZE local variable sum = 0
+2. word.downcase.chars.each do |letter|
+  3. sum += LETTER_POINTS[letter]
+  4.END
+5. RETURN sum
+END
+
+use same structure for class method score

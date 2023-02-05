@@ -1,0 +1,41 @@
+--- Problem Statement ---
+
+Write a program that determines the anagrams of words
+
+Implicit Requirements
+  -must be case insensitive
+  -must not consider the same word an anagram (ie corn or CORN is not an anagram for corn)
+  -MUST HAVE A CLASS CALLED ANAGRAM
+  -MUST HAVE AN INSTANCE METHOD CALLED MATCH THAT DOES THE MATCHING
+
+--- Examples / Test Cases ---
+
+see ../test/anagrams_test.rb for test cases
+
+--- Data Structure ---
+
+result of match instance method should be an array that is either empty or contains all the matches
+
+--- Algorithm ---
+need to downcase and sort the word under analysis and compare each possible anagram by downcasing and sorting
+
+SPIKE
+
+class Anagram
+  attr_reader :word
+  def initialize(word)
+    @word = word
+  end
+  
+  def match(potential_anagrams_arr)
+    use selection and sorting here
+  end
+end
+
+ALGORITHM FOR MATCH INSTANCE METHOD
+
+1.  potential_anagrams_arr.select do |word|
+  2. next if word.downcase == @word.downcase
+  3. word.downcase.sort == @word.downcase.sort
+3.END
+

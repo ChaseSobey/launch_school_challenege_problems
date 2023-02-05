@@ -1,0 +1,55 @@
+Problem Statement
+
+Write a program that can determine if a number is perfect, abundant or deficient
+
+Perfect numbers have an Aliquot sum that is equal to the original number.
+Abundant numbers have an Aliquot sum that is greater than the original number.
+Deficient numbers have an Aliquot sum that is less than the original number.
+
+the Aliquot sum is the summation of all numbers excluding the number in question that divide the number
+in question with no remainder (i.e. for 15, these numbers are 1, 3 and 5)
+
+Implicit Requirements
+
+have a class called PerfectNumber with no constructor method
+have a class method called classify that takes an integer as an argument
+
+if a negative number is analyzed by the classify instance method, raise a StandardError 
+
+--- Examples / Test Cases ---
+
+see perfect_number_test.rb for test cases
+
+--- Data Structure ---
+
+no collection will be used in the solution of this problem
+
+--- Algorithm ---
+
+SPIKE
+
+class PerfectNumber
+  
+  def classify(num)
+    raise StandardError('Negative Number') if num < 0
+    
+    #figure out if perfect, deficient or abundant number
+  end
+end
+
+ALGORITHM FOR THE CLASSIFY CLASS METHOD
+
+1. INITIALIZE an array called divisors = []
+2. ITERATE through num using 1.upto(num) do |number|
+  3. divisors << number if num % number == 0
+  4. END
+5. INITIALIZE local variable sum = divisors.sum
+6. CASE 
+  7. WHEN sum < num
+    8. 'deficient'
+  9. WHEN sum > num
+    10. 'abundant'
+  11. WHEN sum == num
+    12. 'perfect'
+  13. END
+14. END

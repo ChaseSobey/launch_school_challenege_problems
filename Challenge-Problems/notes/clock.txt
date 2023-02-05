@@ -1,0 +1,59 @@
+---PS
+
+Create a clock that is independent of the date
+the clock should be in 24 hour time
+
+-Explicit Requirements
+clock should create a new clock object each time the time is changed
+clocks with the same time should EQUAL EACHOTHER
+you should be able to directly add and subtract time from a block object
+
+should have a class method called 'at' the creates a clock object at the specified time
+if no minute is specified, assume 00 minutes
+should have a .to_s method that returns a string with the 24 hour time
+
+---Examples / Test Cases
+
+See clock_test.rb file
+
+---Data Structure
+
+Have a minute and hour instance variable
+
+---Algorithm
+
+SPIKE
+
+class Clock
+  attr_accessor :hours, :minutes
+  def initialize(hour, minute = 0)
+    @hour_hand = hour
+    @minute_hand = minute
+  end
+  
+  self.to(hour, minute = 0)
+    Clock.new(hour, minute)
+  end
+  
+  def +(minutes)
+    #use modulo operator to determine number of hours if initial minutes + added minutes is greater than 60 minutes
+    #use module operator to determine if initial hours + added hours overtakes 24
+  end
+  
+  def -(minutes)
+    #same process as + operator but with subtraction instead
+  end
+  
+  def to_s
+    hour_time = @hour_hand.to_s
+    hour_time.prepend('0') if @hour_hand < 10
+    minute_time = @minute_hand.to_s
+    minute_time.prepend('0') if @minute_hand < 10
+    
+    hour_time + ':' + minute_time
+  end
+  
+  def ==(other)
+    check if the minutes and hours are equal
+  end
+end

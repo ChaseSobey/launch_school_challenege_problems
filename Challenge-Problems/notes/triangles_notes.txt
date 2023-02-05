@@ -1,0 +1,38 @@
+--- PROBLEM STATEMENT ---
+
+Write a program that determines if a triangle is equilateral, isosceles, or scalene
+
+Explicit Requirements
+- Equilateral has 3 sides same length
+- Isosceles has 2 sides the same length
+- Scalene has no sides the same length
+
+To be a triangle, all sides must be > 0 and sum of 2 sides length must be greater than
+the length of the third side
+
+--- Examples / Test Cases ---
+
+Given in triangles_test.rb file
+
+we know we need a Triangle class with a constructor method that takes 3 values
+as arguments
+
+we know this class has a method called kind, which returns the kind of triangle as a string
+
+we know that fake triangles raise an error during instantiation
+
+--- Data Structure ---
+
+We will use a class
+we can store the 3 sides in an array
+
+--- Algorithm ---
+
+1. CREATE a class called Triangle
+2. DEFINE an initialize method that takes 3 integers as arguments and assigns them as instance variables
+3. DEFINE a method called valid_triangle? which checks if any side is less than 0 and if sum of any 2 sides if less than any 3rd side
+  if triangle is determined to be invalid, RAISE ARGUMENT ERROR
+4. INCLUDE valid_triangle? method in constructor method
+
+5. DEFINE a method called kind that determines and returns if equilateral, isosceles, or scalene triangle
+  6. method does this by counting the number of occurences of each of the 3 legs

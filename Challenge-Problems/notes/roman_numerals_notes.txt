@@ -1,0 +1,44 @@
+--- Problem Statement ---
+
+Write a program that converts standard numbers to roman numeral strings
+
+Implicit Requirements
+  -Need a specific class called RomanNumeral that takes a standard integer as an argument
+  -Need an instance method called to_roman that converts the integer to the correct roman numeral string
+
+--- Examples / Test Cases ---
+
+See roman_numerals_test.rb file for test cases
+
+--- Data Structure ---
+
+A hash can be used to store the values corresponding to each roman numeral
+An instance variable can store the value of the integer assigned for each roman numeral object
+
+--- Algorithm ---
+
+SPIKE
+
+class RomanNumeral
+  attr_reader :number
+  
+  ROMAN_NUMERALS = {'M' => 1000, 'D' => 500, 'C' => 100, 'L' => 50, 'X' => 10, 'V' => 5, 'I' => 1}
+  
+  def initialize(int)
+    @number = int
+  end
+  
+  def to_roman
+    takes the value of number and converts to a roman numeral by looking at remainders
+  end
+end
+
+
+ALGORITHM WILL FOCUS ON IMPLEMENTATION OF TO_ROMAN INSTANCE METHOD
+1. INITIALIZE a local variable called local_number_variable = numbers
+2. INITALIZE an local variable called result = ''
+3. ROMAN_NUMERALS.each do |roman_num, standard_num|
+  4. INITIALIZE a local variable called repititions = local_number_variable % standard_num
+  5. result << repititions * roman_num
+  6. local_number_variable -= repititions * standard_num
+7.END

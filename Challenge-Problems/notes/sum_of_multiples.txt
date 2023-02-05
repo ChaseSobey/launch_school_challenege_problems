@@ -1,0 +1,50 @@
+PS
+
+Write a program that given a natural number and a set of one or more other numbers, can find the sum
+of the multiples of the numbers in the set that are less than the first number.
+If the set of numbers is not given, use a default set of 3 and 5
+
+For instance, if we list all the natural numbers up to, but not including, 20 that are
+multiples of either 3 or 5, we get 3, 5, 6, 9, 10, 12, 15, and 18. The sum of these multiples is 78.
+
+Implicit Requirements
+Constructor method that 
+
+Examples / Test Cases
+
+See sum_of_multiples_test.rb
+
+Data Structure
+
+an array can be used to hold all of the confirmed multiples to then be summed up
+
+Algorithm
+
+SPIKE
+
+class SumOfMultiples
+  attr_reader :multiples
+  def initialize(*multiples)
+    @multiples = multiples.size > 0 ? [*multiples] : [3, 5]
+  end
+  
+  def to(chosen_number)
+    #create an array of all the multiples up to BUT NOT INCLUDING the chosen_number
+  end
+  
+  def self.to(chosen_number - 1)
+    SumOfMultiples.new.to(chosen_number)
+  end
+end
+
+ALGORITHM FOR to(chosen_number) INSTANCE METHOD
+
+1. INITIALIZE an array called confirmed_multiples = []
+
+2. multiples.each do |multiple|
+  3. 0.upto(chosen_number - 1) do |number|
+    4. confirmed_multiples << number if number % multiple == 0
+    END
+  END
+5. RETURN confirmed_multiples.uniq.sum
+END
